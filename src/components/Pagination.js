@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   return (
@@ -10,7 +10,9 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
       >
         Previous
       </button>
-      <span>{currentPage} / {totalPages}</span>
+      <span>
+        {currentPage} / {totalPages}
+      </span>
       <button
         className="bg-gray-300 px-4 py-2 rounded"
         disabled={currentPage === totalPages}

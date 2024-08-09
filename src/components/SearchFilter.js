@@ -1,10 +1,26 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { searchCells, undo, redo } from "../redux/spreadsheetSlice";
 
-const SearchFilter = ({ onSearch }) => {
+const SearchFilter = () => {
   const [query, setQuery] = useState("");
+  const dispatch = useDispatch();
 
   const handleSearch = () => {
-    onSearch(query);
+    dispatch(searchCells(query));
+  };
+
+  const handleClear = () => {
+    setQuery("");
+    dispatch(searchCells(""));
+  };
+
+  const handleUndo = () => {
+    dispatch(undo());
+  };
+
+  const handleRedo = () => {
+    dispatch(redo());
   };
 
   return (
@@ -21,6 +37,24 @@ const SearchFilter = ({ onSearch }) => {
         onClick={handleSearch}
       >
         Search
+      </button>
+      <button
+        className="bg-red-500 text-white px-4 py-2 rounded"
+        onClick={handleClear}
+      >
+        Clear
+      </button>
+      <button
+        className="bg-blue-500 text-white px-4 py-2 rounded"
+        onClick={handleUndo}
+      >
+        Undo
+      </button>
+      <button
+        className="bg-blue-500 text-white px-4 py-2 rounded"
+        onClick={handleRedo}
+      >
+        Redo
       </button>
     </div>
   );

@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
-import Grid from './components/Grid';
-import Toolbar from './components/Toolbar';
-import SearchFilter from './components/SearchFilter';
-import Pagination from './components/Pagination';
+import React, { useState } from "react";
+import Grid from "./components/Grid";
+import SearchFilter from "./components/SearchFilter";
+import Pagination from "./components/Pagination";
 
 const App = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -12,14 +11,9 @@ const App = () => {
     setCurrentPage(page);
   };
 
-  const handleSearch = (query) => {
-    // Implement search logic here
-  };
-
   return (
     <div className="container mx-auto p-4">
-      <Toolbar />
-      <SearchFilter onSearch={handleSearch} />
+      <SearchFilter />
       <Grid />
       <Pagination
         currentPage={currentPage}
